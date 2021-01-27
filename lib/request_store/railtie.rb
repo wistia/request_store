@@ -16,6 +16,9 @@ module RequestStore
           RequestStore.clear!
         end
       end
+    rescue FrozenError
+      # This can happen when running RSpec + Rails 6.1 - see
+      # https://github.com/bugsnag/bugsnag-ruby/commit/a530de77e65379b987f2ff68c96e21969a059767
     end
   end
 end
